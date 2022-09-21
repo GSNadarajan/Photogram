@@ -1,12 +1,15 @@
+
+
+
 <?php
 
 
-$user = $_POST['username'];
-$email = $_POST['email_address'];
-$pass = $_POST['password'];
-$phone = $_POST['phone'];
 
-print_r($_POST);
+$fname = $_POST['fname'];
+$lname = $_POST['lname'];
+
+// print_r($_POST);
+
 $servername = "mysql.selfmade.ninja";
 $username = "Nadarajan";
 $password = "Venkadesh@gs";
@@ -18,12 +21,9 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-// else{
-//     echo "connection success";
-// }
 
-$sql = "INSERT INTO authentication (username, email, phone , password)
-VALUES ('$user', '$email', '$phone' , '$pass')";
+$sql = "INSERT INTO dummy (fname, lname)
+VALUES ('$fname', '$lname')";
 
 if ($conn->query($sql) === TRUE) {
   echo "New record created successfully";
@@ -32,4 +32,5 @@ if ($conn->query($sql) === TRUE) {
 }
 
 $conn->close();
+
 ?>

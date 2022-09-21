@@ -1,12 +1,14 @@
+
+
+
 <?php
 
+$fname = $_POST['fname'];
+$lname = $_POST['lname'];
 
-$user = $_POST['username'];
-$email = $_POST['email_address'];
-$pass = $_POST['password'];
-$phone = $_POST['phone'];
 
-print_r($_POST);
+// print_r($_POST);
+
 $servername = "mysql.selfmade.ninja";
 $username = "Nadarajan";
 $password = "Venkadesh@gs";
@@ -18,18 +20,36 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-// else{
-//     echo "connection success";
-// }
-
-$sql = "INSERT INTO authentication (username, email, phone , password)
-VALUES ('$user', '$email', '$phone' , '$pass')";
+$sql = "UPDATE `duplicate` SET
+`id` = '1',
+`fname` = 'hello',
+`lname` = 'world'
+WHERE `id` = '1';";
 
 if ($conn->query($sql) === TRUE) {
-  echo "New record created successfully";
+?>
+
+
+<main class="">
+  <div class="container bg-primary text-white">
+    <h1 class="mt-5">Record updated Successfully</h1>
+    <p class="lead">This is a simple registration form using php and mysql</p>
+    
+  </div>
+</main>
+
+
+
+
+
+
+
+<?
 } else {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
 $conn->close();
+
+
 ?>
