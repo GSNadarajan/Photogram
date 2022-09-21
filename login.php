@@ -1,5 +1,8 @@
 <?php
  include 'assets/_libs/load.php';
+// include 'assets/_libs/includes/database.class.php';
+// include 'dummy.php';
+
 // print basename($_SERVER['PHP_SELF'],'.php').".css"
  echo __DIR__;
      
